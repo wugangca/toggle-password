@@ -26,16 +26,16 @@ describe('TogglePasswordDirective', () => {
 
   it('should create toggle password elements', () => {
     const parent = inputEl.nativeElement.parentNode;
-    expect(parent.attributes["class"].value).toBe('input-group');
+    expect(parent.attributes.getNamedItem('class').value).toBe('input-group');
 
     const sibling = inputEl.nativeElement.nextSibling;
-    expect(sibling.attributes["class"].value).toBe('input-group-append');
+    expect(sibling.attributes.getNamedItem('class').value).toBe('input-group-append');
 
     const button = inputEl.nativeElement.nextSibling.children[0];
-    expect(button.attributes["class"].value).toBe('btn btn-outline-secondary');
+    expect(button.attributes.getNamedItem('class').value).toBe('btn btn-outline-secondary');
 
     const icon = inputEl.nativeElement.nextSibling.children[0].children[0];
-    expect(icon.attributes["class"].value).toBe('fa icon-eye-open fa-eye');
+    expect(icon.attributes.getNamedItem('class').value).toBe('fa icon-eye-open fa-eye');
   });
 
   it('should toggle password on click event', () => {
@@ -43,14 +43,14 @@ describe('TogglePasswordDirective', () => {
 
     button.click();
     fixture.detectChanges();
-    expect(inputEl.nativeElement.attributes["type"].value).toBe('text');
+    expect(inputEl.nativeElement.attributes.getNamedItem('type').value).toBe('text');
     const icon = inputEl.nativeElement.nextSibling.children[0].children[0];
-    expect(icon.attributes["class"].value).toBe('fa icon-eye-close fa-eye-slash');
+    expect(icon.attributes.getNamedItem('class').value).toBe('fa icon-eye-close fa-eye-slash');
 
     button.click();
     fixture.detectChanges();
-    expect(inputEl.nativeElement.attributes["type"].value).toBe('password');
-    expect(icon.attributes["class"].value).toBe('fa icon-eye-open fa-eye');
+    expect(inputEl.nativeElement.attributes.getNamedItem('type').value).toBe('password');
+    expect(icon.attributes.getNamedItem('class').value).toBe('fa icon-eye-open fa-eye');
 
   });
 });
